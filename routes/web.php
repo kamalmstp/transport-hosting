@@ -2,20 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Livewire\Auth\ForgotPassword;
-use App\Http\Livewire\Auth\ResetPassword;
-use App\Http\Livewire\Auth\SignUp;
-use App\Http\Livewire\Auth\Login;
-use App\Http\Livewire\Dashboard;
-use App\Http\Livewire\Billing;
-use App\Http\Livewire\Profile;
-use App\Http\Livewire\Tables;
-use App\Http\Livewire\StaticSignIn;
-use App\Http\Livewire\StaticSignUp;
-use App\Http\Livewire\Rtl;
+use App\Livewire\Auth\ForgotPassword;
+use App\Livewire\Auth\ResetPassword;
+use App\Livewire\Auth\SignUp;
+use App\Livewire\Auth\Login;
+use App\Livewire\Dashboard;
+use App\Livewire\Billing;
+use App\Livewire\Profile;
+use App\Livewire\Tables;
+use App\Livewire\StaticSignIn;
+use App\Livewire\StaticSignUp;
+use App\Livewire\Rtl;
 
-use App\Http\Livewire\LaravelExamples\UserProfile;
-use App\Http\Livewire\LaravelExamples\UserManagement;
+use App\Livewire\LaravelExamples\UserProfile;
+use App\Livewire\LaravelExamples\UserManagement;
 
 use Illuminate\Http\Request;
 
@@ -51,5 +51,28 @@ Route::middleware('auth')->group(function () {
     Route::get('/rtl', Rtl::class)->name('rtl');
     Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
+    
+    //Trucks
+    Route::get('/trucks', \App\Livewire\Trucks\Index::class)->name('trucks.index');
+    Route::get('/trucks/create', \App\Livewire\Trucks\Create::class)->name('trucks.create');
+    Route::get('/trucks/show/{truck}', \App\Livewire\Trucks\Show::class)->name('trucks.show');
+    Route::get('/trucks/update/{truck}', \App\Livewire\Trucks\Edit::class)->name('trucks.edit');
+    
+    //Drivers
+    Route::get('/drivers', \App\Livewire\Drivers\Index::class)->name('drivers.index');
+    Route::get('/drivers/create', \App\Livewire\Drivers\Create::class)->name('drivers.create');
+    Route::get('/drivers/show/{driver}', \App\Livewire\Drivers\Show::class)->name('drivers.show');
+    Route::get('/drivers/update/{driver}', \App\Livewire\Drivers\Edit::class)->name('drivers.edit');
+    
+    Route::get('/clients', \App\Livewire\Clients\Index::class)->name('clients.index');
+    Route::get('/clients/create', \App\Livewire\Clients\Create::class)->name('clients.create');
+    Route::get('/clients/show/{client}', \App\Livewire\Clients\Show::class)->name('clients.show');
+    Route::get('/clients/update/{client}', \App\Livewire\Clients\Edit::class)->name('clients.edit');
+    
+    Route::get('/orders', \App\Livewire\Orders\Index::class)->name('orders.index');
+    Route::get('/orders/create', \App\Livewire\Orders\Create::class)->name('orders.create');
+    Route::get('/orders/show/{order}', \App\Livewire\Orders\Show::class)->name('orders.show');
+    Route::get('/orders/update/{order}', \App\Livewire\Orders\Edit::class)->name('orders.edit');
+    
 });
 
